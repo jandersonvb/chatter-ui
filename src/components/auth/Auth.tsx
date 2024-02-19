@@ -4,9 +4,10 @@ import { useState } from "react"
 interface AuthProps {
   submitLabel: string
   onSubmit: (email: string, password: string) => Promise<void>
+  children: React.ReactNode
 }
 
-export const Auth = ({ submitLabel, onSubmit }: AuthProps) => {
+export const Auth = ({ submitLabel, onSubmit, children }: AuthProps) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -29,6 +30,7 @@ export const Auth = ({ submitLabel, onSubmit }: AuthProps) => {
       <Button variant="contained" onClick={() => onSubmit(email, password)}>
         {submitLabel}
       </Button>
+      {children}
     </Stack>
   )
 }
