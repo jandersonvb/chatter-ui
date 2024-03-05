@@ -18,14 +18,14 @@ export const Auth = ({ submitLabel, onSubmit, children }: AuthProps) => {
         label="E-mail"
         variant="outlined"
         value={email}
-        onChange={e => setEmail(e.target.value)}
+        onChange={event => setEmail(event.target.value)}
       />
       <TextField
         type="password"
         label="Senha"
         variant="outlined"
         value={password}
-        onChange={e => setPassword(e.target.value)}
+        onChange={event => setPassword(event.target.value)}
       />
       <Button variant="contained" onClick={() => onSubmit(email, password)}>
         {submitLabel}
