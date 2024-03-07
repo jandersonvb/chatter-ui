@@ -3,11 +3,11 @@ import { useState } from "react"
 
 interface AuthProps {
   submitLabel: string
-  onSubmit: (email: string, password: string) => Promise<void>
   children: React.ReactNode
+  onSubmit: (email: string, password: string) => Promise<void>
 }
 
-export const Auth = ({ submitLabel, onSubmit, children }: AuthProps) => {
+export const Auth = ({ submitLabel, children, onSubmit }: AuthProps) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
