@@ -1,14 +1,21 @@
-import { ApolloProvider } from "@apollo/client"
-import { Container, CssBaseline, ThemeProvider, createTheme } from "@mui/material"
-import client from "./constants/apollo-client"
-import { RouterProvider } from "react-router-dom"
-import { router } from "./components/Routes"
+import React from 'react';
+
+import { ApolloProvider } from '@apollo/client';
+import {
+  Container,
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
+import client from './constants/apollo-client';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './components/Routes';
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark'
-  }
-})
+    mode: 'dark',
+  },
+});
 
 const App = () => {
   return (
@@ -20,7 +27,7 @@ const App = () => {
         </Container>
       </ThemeProvider>
     </ApolloProvider>
-  )
-}
+  );
+};
 
-export { App }
+export { App };
