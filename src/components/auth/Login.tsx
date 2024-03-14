@@ -14,7 +14,10 @@ export const Login = () => {
 
 
   return (
-    <Auth submitLabel="Entrar" onSubmit={onSubmit}
+    <Auth
+      submitLabel="Entrar"
+      error={error ? 'E-mail ou senha inválidos' : ''}
+      onSubmit={onSubmit}
     >
       <Link to={"/signup"} style={{ alignSelf: "center" }}>
         <MUILink style={{ alignSelf: "center" }}>Criar nova conta</MUILink>

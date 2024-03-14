@@ -5,10 +5,11 @@ import { useState } from "react"
 interface AuthProps {
   submitLabel: string
   children: React.ReactNode
+  error?: string
   onSubmit: (email: string, password: string) => Promise<void>
 }
 
-export const Auth = ({ submitLabel, children, onSubmit }: AuthProps) => {
+export const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -19,6 +20,8 @@ export const Auth = ({ submitLabel, children, onSubmit }: AuthProps) => {
         label="E-mail"
         variant="outlined"
         value={email}
+        error={!!error}
+        helperText={error}
         onChange={event => setEmail(event.target.value)}
       />
       <TextField
@@ -26,6 +29,8 @@ export const Auth = ({ submitLabel, children, onSubmit }: AuthProps) => {
         label="Senha"
         variant="outlined"
         value={password}
+        error={!!error}
+        helperText={error}
         onChange={event => setPassword(event.target.value)}
       />
       <Button variant="contained" onClick={() => onSubmit(email, password)}>

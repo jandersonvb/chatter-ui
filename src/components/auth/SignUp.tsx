@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { Link as MUILink } from '@mui/material';
@@ -7,16 +7,22 @@ import { useCreateUser } from '../../hooks/useCreateUser';
 
 export const SignUp = () => {
   const [createUser] = useCreateUser();
+  const [error, setError] = useState("");
 
   const onSubmit = async (email: string, password: string) => {
-    await createUser({
-      variables: {
-        createUserInput: {
-          email,
-          password,
+    try {
+      await createUser({
+        variables: {
+          createUserInput: {
+            email,
+            password,
+          },
         },
-      },
-    });
+      });
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   };
 
   return (
