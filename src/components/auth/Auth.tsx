@@ -6,7 +6,7 @@ interface AuthProps {
   submitLabel: string
   children: React.ReactNode
   error?: string
-  onSubmit: (email: string, password: string) => Promise<void>
+  onSubmit: (credentials: { email: string, password: string }) => Promise<void>
 }
 
 export const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
@@ -33,7 +33,7 @@ export const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
         helperText={error}
         onChange={event => setPassword(event.target.value)}
       />
-      <Button variant="contained" onClick={() => onSubmit(email, password)}>
+      <Button variant="contained" onClick={() => onSubmit({ email, password })}>
         {submitLabel}
       </Button>
       {children}

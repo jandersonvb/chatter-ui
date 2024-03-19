@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import client from '../constants/apollo-client';
+import { API_URL } from '../constants/urls';
 
 export interface LoginRequest {
   email: string;
@@ -7,10 +8,10 @@ export interface LoginRequest {
 }
 
 const useLogin = () => {
-  const [error, setError] = useState<boolean>();
+  const [error, setError] = useState<string>();
 
   const login = async (request: LoginRequest) => {
-    const response = await fetch(`http://localhost:3000/auth/login`, {
+    const response = await fetch(`${API_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,10 +20,15 @@ const useLogin = () => {
     });
 
     if (!response.ok) {
-      setError(true);
+      if (response.status === 401) {
+        setError('Email ou senha inválidos.');
+      } else {
+        setError('Ocorreu um erro desconhecido.')
+
+      }
       return;
     }
-    setError(false);
+    setError("");
     await client.refetchQueries({ include: 'active' });
   };
 

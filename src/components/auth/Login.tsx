@@ -8,20 +8,15 @@ import { useLogin } from "../../hooks/useLogin"
 export const Login = () => {
   const { login, error } = useLogin()
 
-  const onSubmit = async (email: string, password: string) => {
-    await login({ email, password })
-  }
-
-
   return (
     <Auth
       submitLabel="Entrar"
-      error={error ? 'E-mail ou senha inválidos' : ''}
-      onSubmit={onSubmit}
+      error={error}
+      onSubmit={(request) => login(request)}
     >
       <Link to={"/signup"} style={{ alignSelf: "center" }}>
         <MUILink style={{ alignSelf: "center" }}>Criar nova conta</MUILink>
       </Link>
-    </Auth>
+    </Auth >
   )
 }
