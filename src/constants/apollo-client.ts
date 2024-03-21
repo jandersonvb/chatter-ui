@@ -2,15 +2,14 @@ import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { API_URL } from './urls';
 
 import { onError } from '@apollo/client/link/error';
+import { onLogout } from '../utils/logout';
 import { excludedRoutes } from './excluded-routes';
-import { router } from '../components/Routes';
 
 const logoutLink = onError((error) => {
   if (error.graphQLErrors?.length && (error.graphQLErrors[0]?.extensions?.originalError as any)?.statusCode === 401) {
     // logout user
     if (!excludedRoutes.includes(window.location.pathname)) {
-      router.navigate('/login');
-      client.resetStore();
+      onLogout();
     }
   }
 });
@@ -23,4 +22,5 @@ const client = new ApolloClient({
 
 });
 
-export { logoutLink, httpLink, client }
+export { client, httpLink, logoutLink };
+
