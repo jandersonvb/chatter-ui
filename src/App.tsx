@@ -6,10 +6,10 @@ import {
   ThemeProvider,
   createTheme,
 } from '@mui/material';
-import client from './constants/apollo-client';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './components/Routes';
 import { Guard } from './components/auth/Guard';
+import { client } from './constants/apollo-client';
 
 const darkTheme = createTheme({
   palette: {
