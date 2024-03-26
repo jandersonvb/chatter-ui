@@ -1,6 +1,7 @@
 import ForumIcon from '@mui/icons-material/Forum';
 import { Typography } from '@mui/material';
-import { router } from '../Routes';
+import { router } from '../../Routes';
+
 
 const MobileBranding = () => {
   return (
