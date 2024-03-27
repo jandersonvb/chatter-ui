@@ -24,7 +24,8 @@
     "rules": {
         "@typescript-eslint/no-explicit-any": "off",
         "prettier/prettier": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/no-empty-function": "off"
     },
     "settings": {
         "react": {

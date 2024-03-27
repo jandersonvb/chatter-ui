@@ -6,6 +6,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
+import { useLogout } from '../../hooks/useLogout';
+import { onLogout } from '../../utils/logout';
 
 interface SettingsProps {
   settings: string[]
@@ -14,6 +16,7 @@ interface SettingsProps {
 
 const Settings = ({ settings }: SettingsProps) => {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const { logout } = useLogout();
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -48,11 +51,13 @@ const Settings = ({ settings }: SettingsProps) => {
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >
-        {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">{setting}</Typography>
-          </MenuItem>
-        ))}
+        <MenuItem key={'logout'} onClick={async () => {
+          await logout() // Faz o logout
+          onLogout() // Redireciona para a página de login
+          handleCloseUserMenu() // Fecha o menu
+        }}>
+          <Typography textAlign="center">Logout</Typography>
+        </MenuItem>
       </Menu>
     </Box>
   )
