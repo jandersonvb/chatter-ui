@@ -5,7 +5,7 @@ import { onError } from '@apollo/client/link/error';
 import { onLogout } from '../utils/logout';
 import { excludedRoutes } from './excluded-routes';
 
-const logoutLink = onError((error) => {
+export const logoutLink = onError((error) => {
   if (error.graphQLErrors?.length && (error.graphQLErrors[0]?.extensions?.originalError as any)?.statusCode === 401) {
     // logout user
     if (!excludedRoutes.includes(window.location.pathname)) {
@@ -14,13 +14,12 @@ const logoutLink = onError((error) => {
   }
 });
 
-const httpLink = new HttpLink({ uri: `${API_URL}/graphql` });
+export const httpLink = new HttpLink({ uri: `${API_URL}/graphql` });
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: logoutLink.concat(httpLink),
-
 });
 
-export { client, httpLink, logoutLink };
+
 

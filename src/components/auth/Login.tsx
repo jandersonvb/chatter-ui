@@ -3,7 +3,7 @@ import { Link as MUILink } from "@mui/material"
 import { Auth } from "./Auth"
 import { useLogin } from "../../hooks/useLogin"
 
-export const Login = () => {
+const Login = () => {
   const { login, error } = useLogin()
 
   return (
@@ -18,3 +18,4 @@ export const Login = () => {
     </Auth >
   )
 }
+export { Login }

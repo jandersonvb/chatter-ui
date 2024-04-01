@@ -1,4 +1,4 @@
-export const Home = () => {
+const Home = () => {
   return (
     <div>
       <h1>Home</h1>
@@ -6,3 +6,5 @@ export const Home = () => {
     </div>
   );
 }
+
+export { Home }

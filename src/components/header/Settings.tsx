@@ -30,7 +30,7 @@ const Settings = ({ settings }: SettingsProps) => {
 
   return (
     <Box sx={{ flexGrow: 0 }}>
-      <Tooltip title="Open settings">
+      <Tooltip title="Configurações">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar alt="Remy Sharp" src="" />
         </IconButton>
@@ -56,7 +56,7 @@ const Settings = ({ settings }: SettingsProps) => {
           onLogout() // Redireciona para a página de login
           handleCloseUserMenu() // Fecha o menu
         }}>
-          <Typography textAlign="center">Logout</Typography>
+          <Typography textAlign="center">Sair</Typography>
         </MenuItem>
       </Menu>
     </Box>

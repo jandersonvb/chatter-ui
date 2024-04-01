@@ -10,7 +10,7 @@ interface AuthProps {
   onSubmit: (credentials: { email: string, password: string }) => Promise<void>
 }
 
-export const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
+const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const { data } = useGetMe()
@@ -25,7 +25,15 @@ export const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
     , [data, navigate])
 
   return (
-    <Stack spacing={3} sx={{ height: "100vh", maxWidth: { xs: "70%", md: "30%" }, margin: "0 auto", justifyContent: "center" }}>
+    <Stack
+      spacing={3}
+      sx={{
+        height: "100vh",
+        maxWidth: { xs: "70%", md: "30%" },
+        margin: "0 auto",
+        justifyContent: "center",
+
+      }}>
       <TextField
         type="email"
         label="E-mail"
@@ -51,4 +59,6 @@ export const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
     </Stack>
   )
 }
+
+export { Auth }
 

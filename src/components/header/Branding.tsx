@@ -21,6 +21,7 @@ const Branding = () => {
           letterSpacing: '.3rem',
           color: 'inherit',
           textDecoration: 'none',
+          '&:hover': { color: 'primary.main' }
         }}
       >
         VBTech

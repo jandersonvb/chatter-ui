@@ -11,7 +11,7 @@ interface SignUpProps {
   password: string;
 }
 
-export const SignUp = () => {
+const SignUp = () => {
   const [createUser] = useCreateUser();
   const [error, setError] = useState("")
   const { login } = useLogin()
@@ -55,3 +55,5 @@ export const SignUp = () => {
     </Auth>
   );
 };
+
+export { SignUp }
