@@ -5,6 +5,7 @@ import { useCreateUser } from '../../hooks/useCreateUser';
 import { extractErrorMessage } from '../../utils/errors';
 import { useState } from 'react';
 import { useLogin } from '../../hooks/useLogin';
+import { UNKNOWN_ERROR_MESSAGE } from '../../constants/errors';
 
 interface SignUpProps {
   email: string;
@@ -39,7 +40,7 @@ const SignUp = () => {
       } else if (errorMessage === "Email already exists") {
         setError("Email já cadastrado");
       } else {
-        setError("Ocorreu um erro desconhecido");
+        setError(UNKNOWN_ERROR_MESSAGE);
       }
     }
   };

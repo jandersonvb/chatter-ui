@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useLogout } from '../../hooks/useLogout';
 import { onLogout } from '../../utils/logout';
+import { snackVar } from '../../constants/snack';
+import { UNKNOWN_ERROR_SNACK_MESSAGE } from '../../constants/errors';
 
 interface SettingsProps {
   settings: string[]
@@ -52,9 +54,13 @@ const Settings = ({ settings }: SettingsProps) => {
         onClose={handleCloseUserMenu}
       >
         <MenuItem key={'logout'} onClick={async () => {
-          await logout() // Faz o logout
-          onLogout() // Redireciona para a página de login
-          handleCloseUserMenu() // Fecha o menu
+          try {
+            await logout() // Faz o logout
+            onLogout() // Redireciona para a página de login
+            handleCloseUserMenu() // Fecha o menu
+          } catch (err) {
+            snackVar(UNKNOWN_ERROR_SNACK_MESSAGE) // Exibe um erro genérico
+          }
         }}>
           <Typography textAlign="center">Sair</Typography>
         </MenuItem>
