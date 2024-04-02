@@ -28,11 +28,15 @@ const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
     <Stack
       spacing={3}
       sx={{
-        height: "100vh",
-        maxWidth: { xs: "70%", md: "30%" },
+        //Nao aparece o scroll bar
+        height: '100vh',
+        maxHeight: '90vh',
+        width: '100%',
+        maxWidth: {
+          xs: "70%", md: "30%"
+        },
         margin: "0 auto",
         justifyContent: "center",
-
       }}>
       <TextField
         type="email"
@@ -56,7 +60,7 @@ const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
         {submitLabel}
       </Button>
       {children}
-    </Stack>
+    </Stack >
   )
 }
 

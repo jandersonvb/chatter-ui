@@ -17,7 +17,7 @@ const pages: Page[] = [
 
 const unauthenticatedPages: Page[] = [
   { title: 'Login', path: '/login' },
-  { title: 'SignUp', path: '/signup' },
+  { title: 'Cadastre-se', path: '/signup' },
 ]
 
 const settings = ['Sair'];
