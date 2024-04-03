@@ -31,7 +31,6 @@ const Auth = ({ submitLabel, children, error, onSubmit }: AuthProps) => {
         //Nao aparece o scroll bar
         height: '100vh',
         maxHeight: '90vh',
-        width: '100%',
         maxWidth: {
           xs: "70%", md: "30%"
         },
