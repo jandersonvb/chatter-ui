@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
 
-import ForumIcon from '@mui/icons-material/Forum';
+import { Chat } from "@mui/icons-material";
 import { router } from "../Routes";
 
 const Branding = () => {
   return (
     <>
-      <ForumIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+      <Chat sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
       <Typography
         variant="h6"
         noWrap
@@ -21,13 +21,17 @@ const Branding = () => {
           letterSpacing: '.3rem',
           color: 'inherit',
           textDecoration: 'none',
-          '&:hover': { color: 'primary.main' }
+          '&:hover': {
+            transform: 'scale(0.9)',
+            transition: 'all 0.3s',
+
+          }
         }}
       >
-        VBTech
+        CHAT
       </Typography>
     </>
   );
 }
 
-export { Branding }
+export { Branding };

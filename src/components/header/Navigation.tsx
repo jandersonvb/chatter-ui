@@ -14,7 +14,10 @@ const Navigation = ({ pages }: NavigationProps) => {
           key={page.title}
           onClick={() => router.navigate(page.path)}
           sx={{
-            my: 2, color: 'white', display: 'inline', alignItems: 'center', justifyContent: 'center', textTransform: 'none', '&:hover': { color: 'primary.main' }
+            my: 2, color: 'white', display: 'inline', alignItems: 'center', justifyContent: 'center', textTransform: 'none', '&:hover': {
+              transform: 'scale(0.9)',
+              transition: 'all 0.3s',
+            }
           }}
         >
           {page.title}
